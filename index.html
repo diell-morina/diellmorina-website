@@ -54,6 +54,28 @@
             <li><a href="#lab">The Lab (Experiments & R Data)</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
+        
+        <hr style="margin-top: 40px; border: 0; border-top: 1px solid #ccc;">
+        <footer style="font-size: 12px; color: #555; margin-top: 10px; margin-bottom: 60px;">
+            © 2026 Diell Morina. <a href="privacy.html">Privacy Policy</a>
+        </footer>
     </main>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #111; color: #fff; padding: 15px; font-family: monospace; font-size: 11px; display: none; box-sizing: border-box; z-index: 9999;">
+        <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <span>We use Google Analytics and Microsoft Clarity to improve your experience. View our <a href="privacy.html" style="color: #fff; text-decoration: underline;">Privacy Policy</a>.</span>
+            <button onclick="acceptCookies()" style="background: #fff; color: #111; border: none; padding: 5px 15px; cursor: pointer; font-weight: bold; font-family: monospace; border-radius: 0;">Accept</button>
+        </div>
+    </div>
+    <script>
+        if (!localStorage.getItem('cookieConsent')) {
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

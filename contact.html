@@ -59,12 +59,37 @@
                           class="p-2 bg-transparent border border-black rounded-none outline-none focus:ring-2 focus:ring-black resize-y"></textarea>
             </div>
 
+            <p class="text-[11px] text-gray-500 mb-2">
+                By submitting, you agree to our <a href="privacy.html" class="underline text-blue-700">Privacy Policy</a>. We use GA4 & Microsoft Clarity to analyze traffic.
+            </p>
+
             <button type="submit" 
                     class="w-full md:w-auto px-8 py-3 bg-black text-white font-bold border border-black rounded-none hover:bg-transparent hover:text-black transition-colors cursor-pointer">
                 Submit Message
             </button>
         </form>
+
+        <footer class="mt-12 text-xs text-gray-500 border-t border-black/10 pt-4 pb-20">
+            © 2026 Diell Morina. <a href="privacy.html" class="underline hover:text-blue-700">Privacy Policy</a>
+        </footer>
     </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #111; color: #fff; padding: 15px; font-family: monospace; font-size: 11px; display: none; box-sizing: border-box; z-index: 9999;">
+        <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <span>We use Google Analytics and Microsoft Clarity to improve your experience. View our <a href="privacy.html" style="color: #fff; text-decoration: underline;">Privacy Policy</a>.</span>
+            <button onclick="acceptCookies()" style="background: #fff; color: #111; border: none; padding: 5px 15px; cursor: pointer; font-weight: bold; font-family: monospace; border-radius: 0;">Accept</button>
+        </div>
+    </div>
+    <script>
+        if (!localStorage.getItem('cookieConsent')) {
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
 
     <script>
         const form = document.getElementById('contactForm');

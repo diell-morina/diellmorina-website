@@ -33,6 +33,27 @@
             <p class="text-lg mb-2">Thank you for reaching out to me.</p>
             <p class="text-lg">I'll get back to you soon.</p>
         </div>
+
+        <footer class="mt-12 text-xs text-gray-500 border-t border-black/10 pt-4 pb-20">
+            © 2026 Diell Morina. <a href="privacy.html" class="underline hover:text-blue-700">Privacy Policy</a>
+        </footer>
     </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #111; color: #fff; padding: 15px; font-family: monospace; font-size: 11px; display: none; box-sizing: border-box; z-index: 9999;">
+        <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <span>We use Google Analytics and Microsoft Clarity to improve your experience. View our <a href="privacy.html" style="color: #fff; text-decoration: underline;">Privacy Policy</a>.</span>
+            <button onclick="acceptCookies()" style="background: #fff; color: #111; border: none; padding: 5px 15px; cursor: pointer; font-weight: bold; font-family: monospace; border-radius: 0;">Accept</button>
+        </div>
+    </div>
+    <script>
+        if (!localStorage.getItem('cookieConsent')) {
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
