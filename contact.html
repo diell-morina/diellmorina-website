@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>">
     <title>Contact - Diell Morina</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -11,11 +12,10 @@
     <script>
         // Dynamic GTM Loader (Strict GDPR Compliance)
         function loadGTM() {
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-T5MTHX7H');
+            (window.dataLayer = window.dataLayer || []).push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=document.getElementsByTagName('script')[0],
+            j=document.createElement('script'),dl='dataLayer'!='dataLayer'?'&l=dataLayer':'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id=GTM-T5MTHX7H'+dl;f.parentNode.insertBefore(j,f);
         }
     </script>
 </head>
@@ -57,7 +57,7 @@
             </div>
 
             <p class="text-[11px] text-gray-500 mb-2 leading-relaxed">
-                By submitting, you agree to my <a href="privacy.html" class="underline text-blue-700">Privacy Policy</a>. I use GA4 & Microsoft Clarity to analyze traffic.
+                By submitting, you agree to my <a href="privacy.html" class="underline text-blue-700">Privacy Policy</a>. Your data is sent directly to my personal email inbox and is never shared.
             </p>
 
             <button type="submit" 
@@ -71,10 +71,10 @@
         </footer>
     </div>
 
-    <!-- Thin Minimalist Cookie Banner -->
+    <!-- Ultra-Transparent Cookie Banner -->
     <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #111; color: #fff; padding: 12px 20px; font-family: monospace; font-size: 11px; display: none; box-sizing: border-box; z-index: 9999; border-top: 1px solid #333;">
         <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-            <span style="line-height: 1.4;">I use Google Analytics and Microsoft Clarity to improve your experience. View my <a href="privacy.html" style="color: #fff; text-decoration: underline; font-weight: bold;">Privacy Policy</a>.</span>
+            <span style="line-height: 1.4;">Tracking is <strong>OFF</strong> by default. No scripts load unless you click Accept, and declining guarantees zero tracking. Clicking Accept enables anonymous analytics to help me study site performance and improve user experience. Your data is never sold or shared. View my <a href="privacy.html" style="color: #fff; text-decoration: underline; font-weight: bold;">Privacy Policy</a>.</span>
             <div style="display: flex; gap: 10px;">
                 <button onclick="declineCookies()" style="background: transparent; color: #aaa; border: 1px solid #555; padding: 4px 10px; cursor: pointer; font-family: monospace; font-size: 10px;">Decline</button>
                 <button onclick="acceptCookies()" style="background: #fff; color: #111; border: 1px solid #fff; padding: 4px 10px; cursor: pointer; font-family: monospace; font-weight: bold; font-size: 10px;">Accept</button>
