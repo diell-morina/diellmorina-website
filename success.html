@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T5MTHX7H');</script>
-    <!-- End Google Tag Manager -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success - Diell Morina</title>
@@ -16,14 +8,19 @@
     <style>
         body { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
     </style>
+    <script>
+        // Dynamic GTM Loader (Strict GDPR Compliance)
+        function loadGTM() {
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-T5MTHX7H');
+        }
+    </script>
 </head>
-<body class="bg-[#f5f5f0] text-black min-h-screen p-6 md:p-12">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5MTHX7H"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <div class="max-w-2xl mx-auto">
+<body class="bg-[#f5f5f0] text-black min-h-screen p-4 md:p-12">
+    <div class="max-w-2xl mx-auto w-full">
         <div class="mb-12">
             <a href="index.html" class="text-blue-700 underline hover:bg-blue-700 hover:text-white transition-colors text-lg">← Back to Home</a>
         </div>
@@ -39,19 +36,33 @@
         </footer>
     </div>
 
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #111; color: #fff; padding: 15px; font-family: monospace; font-size: 11px; display: none; box-sizing: border-box; z-index: 9999;">
+    <!-- Thin Minimalist Cookie Banner -->
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #111; color: #fff; padding: 12px 20px; font-family: monospace; font-size: 11px; display: none; box-sizing: border-box; z-index: 9999; border-top: 1px solid #333;">
         <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-            <span>We use Google Analytics and Microsoft Clarity to improve your experience. View our <a href="privacy.html" style="color: #fff; text-decoration: underline;">Privacy Policy</a>.</span>
-            <button onclick="acceptCookies()" style="background: #fff; color: #111; border: none; padding: 5px 15px; cursor: pointer; font-weight: bold; font-family: monospace; border-radius: 0;">Accept</button>
+            <span style="line-height: 1.4;">I use Google Analytics and Microsoft Clarity to improve your experience. View my <a href="privacy.html" style="color: #fff; text-decoration: underline; font-weight: bold;">Privacy Policy</a>.</span>
+            <div style="display: flex; gap: 10px;">
+                <button onclick="declineCookies()" style="background: transparent; color: #aaa; border: 1px solid #555; padding: 4px 10px; cursor: pointer; font-family: monospace; font-size: 10px;">Decline</button>
+                <button onclick="acceptCookies()" style="background: #fff; color: #111; border: 1px solid #fff; padding: 4px 10px; cursor: pointer; font-family: monospace; font-weight: bold; font-size: 10px;">Accept</button>
+            </div>
         </div>
     </div>
+
     <script>
-        if (!localStorage.getItem('cookieConsent')) {
+        const consent = localStorage.getItem('cookieConsent');
+        if (consent === 'true') {
+            loadGTM();
+        } else if (consent !== 'false') {
             document.getElementById('cookie-banner').style.display = 'block';
         }
+
         function acceptCookies() {
             localStorage.setItem('cookieConsent', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+            loadGTM();
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'false');
             document.getElementById('cookie-banner').style.display = 'none';
         }
     </script>
