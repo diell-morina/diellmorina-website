@@ -67,12 +67,37 @@
     </div>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function() {
+        const form = document.getElementById('contactForm');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop the browser from instantly redirecting (prevents GTM race condition!)
+
+            // 1. Instantly push event & metadata to the GTM Data Layer
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': 'form_submission',
                 'form_name': 'general_contact',
                 'form_id': 'contactForm'
+            });
+
+            // 2. Package the form inputs and send to Web3Forms silently in the background (AJAX)
+            const formData = new FormData(form);
+            
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // 3. Only redirect once the submission network request finishes successfully
+                    window.location.href = 'success.html';
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Form submission failed. Please check your connection.');
             });
         });
     </script>
