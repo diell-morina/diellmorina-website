@@ -4,14 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="KXgwyb2HQZee90X6iL7YDHqq9UplE9L_XvGWdCUHV4w" />
-    
-    <!-- Instant Brutalist Sun Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>">
-    
     <title>Contact | Diell Morina</title>
     <meta name="description" content="Get in touch with Diell Morina for media buying inquiries, custom tracking setups, or marketing tech collaborations.">
-    
-    <!-- JSON-LD Structured Data for Search Engines & AI Crawlers -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -32,13 +27,11 @@
       }
     }
     </script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
     </style>
     <script>
-        // Dynamic GTM Loader (Strict GDPR Compliance)
         function loadGTM() {
             (window.dataLayer = window.dataLayer || []).push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=document.getElementsByTagName('script')[0],
@@ -52,13 +45,10 @@
         <div class="mb-12">
             <a href="index.html" class="text-blue-700 underline hover:bg-blue-700 hover:text-white transition-colors text-lg">← Back to Home</a>
         </div>
-
-        <h1 class="text-3xl font-bold mb-8">☀️ Contact</h1>
-        
+        <h1 class="text-3xl font-bold mb-8">Contact</h1>
         <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-6 w-full box-border">
             <input type="hidden" name="access_key" value="4819b757-ac72-48c1-94b0-c397060ee5ae">
             <input type="hidden" name="redirect" value="https://diellmorina.com/success.html">
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                 <div class="flex flex-col w-full">
                     <label for="first_name" class="mb-2 font-bold">First name</label>
@@ -71,35 +61,28 @@
                            class="w-full p-2 bg-transparent border border-black rounded-none outline-none focus:ring-2 focus:ring-black box-border">
                 </div>
             </div>
-
             <div class="flex flex-col w-full">
                 <label for="email" class="mb-2 font-bold">Email Address</label>
                 <input type="email" id="email" name="email" required 
                        class="w-full p-2 bg-transparent border border-black rounded-none outline-none focus:ring-2 focus:ring-black box-border">
             </div>
-
             <div class="flex flex-col w-full">
                 <label for="message" class="mb-2 font-bold">Message</label>
                 <textarea id="message" name="message" rows="5" required 
                           class="w-full p-2 bg-transparent border border-black rounded-none outline-none focus:ring-2 focus:ring-black resize-y box-border"></textarea>
             </div>
-
             <p class="text-[11px] text-gray-500 mb-2 leading-relaxed">
                 By submitting, you agree to my <a href="privacy.html" class="underline text-blue-700">Privacy Policy</a>. Your data is sent directly to my personal email inbox and is never shared.
             </p>
-
             <button type="submit" 
                     class="w-full md:w-auto px-8 py-3 bg-black text-white font-bold border border-black rounded-none hover:bg-transparent hover:text-black transition-colors cursor-pointer">
                 Submit Message
             </button>
         </form>
-
         <footer class="mt-12 text-xs text-gray-500 border-t border-black/10 pt-4 pb-20">
             © 2026 Diell Morina. <a href="privacy.html" class="underline hover:text-blue-700">Privacy Policy</a>
         </footer>
     </div>
-
-    <!-- Ultra-Transparent Cookie Banner -->
     <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #111; color: #fff; padding: 12px 20px; font-family: monospace; font-size: 11px; display: none; box-sizing: border-box; z-index: 9999; border-top: 1px solid #333;">
         <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
             <span style="line-height: 1.4;">Tracking is <strong>OFF</strong> by default. No scripts load unless you click Accept, and declining guarantees zero tracking. Clicking Accept enables anonymous analytics to help me study site performance and improve user experience. Your data is never sold or shared. View my <a href="privacy.html" style="color: #fff; text-decoration: underline; font-weight: bold;">Privacy Policy</a>.</span>
@@ -109,7 +92,6 @@
             </div>
         </div>
     </div>
-
     <script>
         const consent = localStorage.getItem('cookieConsent');
         if (consent === 'true') {
@@ -117,34 +99,27 @@
         } else if (consent !== 'false') {
             document.getElementById('cookie-banner').style.display = 'block';
         }
-
         function acceptCookies() {
             localStorage.setItem('cookieConsent', 'true');
             document.getElementById('cookie-banner').style.display = 'none';
             loadGTM();
         }
-
         function declineCookies() {
             localStorage.setItem('cookieConsent', 'false');
             document.getElementById('cookie-banner').style.display = 'none';
         }
     </script>
-
     <script>
         const form = document.getElementById('contactForm');
-
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': 'form_submission',
                 'form_name': 'general_contact',
                 'form_id': 'contactForm'
             });
-
             const formData = new FormData(form);
-            
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 body: formData
