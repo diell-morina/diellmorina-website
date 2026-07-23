@@ -11,13 +11,35 @@
     <style>
         body { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
     </style>
+    
+    <!-- Google Consent Mode v2 & GTM -->
     <script>
-        function loadGTM() {
-            (window.dataLayer = window.dataLayer || []).push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=document.getElementsByTagName('script')[0],
-            j=document.createElement('script'),dl='dataLayer'!='dataLayer'?'&l=dataLayer':'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id=GTM-T5MTHX7H'+dl;f.parentNode.insertBefore(j,f);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+
+        const savedConsent = localStorage.getItem('cookieConsent');
+        if (savedConsent === 'true') {
+            gtag('consent', 'default', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted'
+            });
+        } else {
+            gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'wait_for_update': 500
+            });
         }
+
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-T5MTHX7H');
     </script>
 </head>
 <body class="bg-[#f5f5f0] text-black min-h-screen p-4 md:p-12">
@@ -92,7 +114,7 @@
             </section>
             <section>
                 <h2 class="font-bold text-lg mb-2">4. Data I Collect & How It Is Protected</h2>
-                <p><strong>Tracking is OFF by default:</strong> When you visit this website, Google Tag Manager and all analytics scripts are completely blocked from loading. Zero cookies are stored and zero network requests are sent to analytics providers unless you explicitly click "Accept" on the cookie banner. Ignoring or declining the banner guarantees 100% anonymous, untracked browsing. There are no hidden web beacons, third-party advertising scripts, or unacknowledged tracking pixels anywhere on this website.</p>
+                <p><strong>Tracking defaults to Cookieless Pings:</strong> When you visit this website, Google Tag Manager loads in "Consent Mode v2". This means it sends basic, anonymized, cookieless pings to count pageviews, but zero tracking cookies are stored and personal data collection is completely disabled unless you explicitly click "Accept" on the cookie banner. Ignoring or declining the banner guarantees cookieless, untracked browsing. There are no hidden web beacons, third-party advertising scripts, or unacknowledged tracking pixels anywhere on this website.</p>
                 <p class="mt-2"><strong>Personal Data (Contact Form):</strong> If you fill out the contact form, your First Name, Last Name, Email Address, and Message are securely transmitted via Web3Forms directly to my personal email inbox. This data is used exclusively to reply to your inquiry and is never shared, rented, or sold.</p>
             </section>
             <section>
@@ -108,34 +130,48 @@
             © 2026 Diell Morina. All rights reserved.
         </footer>
     </div>
+
     <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #111; color: #fff; padding: 12px 20px; font-family: monospace; font-size: 11px; display: none; box-sizing: border-box; z-index: 9999; border-top: 1px solid #333;">
         <div style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-            <span style="line-height: 1.4;">Tracking is <strong>OFF</strong> by default. No scripts load unless you click Accept, and declining guarantees zero tracking. Clicking Accept enables anonymous analytics to help me study site performance and improve user experience. Your data is never sold or shared. View my <a href="privacy.html" style="color: #fff; text-decoration: underline; font-weight: bold;">Privacy Policy</a>.</span>
+            <span style="line-height: 1.4;">Tracking cookies are <strong>OFF</strong> by default. We respect your privacy using Google Consent Mode, meaning no tracking cookies are stored unless you click Accept. Clicking Accept enables analytics to help me study site performance. Your data is never sold or shared. View my <a href="privacy.html" style="color: #fff; text-decoration: underline; font-weight: bold;">Privacy Policy</a>.</span>
             <div style="display: flex; gap: 10px;">
                 <button onclick="declineCookies()" style="background: transparent; color: #aaa; border: 1px solid #555; padding: 4px 10px; cursor: pointer; font-family: monospace; font-size: 10px;">Decline</button>
                 <button onclick="acceptCookies()" style="background: #fff; color: #111; border: 1px solid #fff; padding: 4px 10px; cursor: pointer; font-family: monospace; font-weight: bold; font-size: 10px;">Accept</button>
             </div>
         </div>
     </div>
+
     <script>
         const consent = localStorage.getItem('cookieConsent');
-        if (consent === 'true') {
-            loadGTM();
-        } else if (consent !== 'false') {
+        if (consent !== 'true' && consent !== 'false') {
             document.getElementById('cookie-banner').style.display = 'block';
         }
+
         function acceptCookies() {
             localStorage.setItem('cookieConsent', 'true');
             document.getElementById('cookie-banner').style.display = 'none';
-            loadGTM();
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted'
+            });
         }
+
         function declineCookies() {
             localStorage.setItem('cookieConsent', 'false');
             document.getElementById('cookie-banner').style.display = 'none';
+            gtag('consent', 'update', {
+                'ad_storage': 'denied',
+                'analytics_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied'
+            });
         }
+
         function resetCookies() {
             localStorage.removeItem('cookieConsent');
-            alert('Cookie preferences reset. Tracking is now OFF.');
+            alert('Cookie preferences reset. You can now change your settings.');
             location.reload();
         }
     </script>
